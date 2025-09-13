@@ -1,7 +1,10 @@
 @Library('Shared') _
 pipeline {
     agent any
-    
+
+     tools {
+        dependencyCheck 'OWASP'   // name you configured above
+    }
     environment{
         SONAR_HOME = tool "sonar"
     }
