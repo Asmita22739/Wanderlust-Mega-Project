@@ -36,7 +36,18 @@ pipeline {
                 }
             }
         }
-
+        stage("Install Node.js dependencies") {
+            steps {
+                script {
+                    dir('backend') {
+                        sh 'npm install'
+                    }
+                    dir('frontend') {
+                        sh 'npm install'
+                    }
+                }
+            }
+        }
         stage("OWASP: Dependency check"){
             steps{
                 script{
